@@ -40,7 +40,7 @@ const Header: React.FC = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
     >
-      <div className="container mx-auto px-6 py-4 flex justify-end items-end">
+      <div className="container mx-auto px-6 py-4 flex justify-end items-end w-full">
         <nav className="hidden md:flex space-x-8">
           {["Works", "Music", "About", "Contact"].map((item) => (
             <motion.button
