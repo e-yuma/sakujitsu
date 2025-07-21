@@ -76,7 +76,7 @@ const About: React.FC = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <img
-                    src="src\assets\icon.png"
+                    src="public\assets\icon.png"
                     alt="昨日(sakujitsu)"
                     className="w-full h-full object-cover"
                   />
