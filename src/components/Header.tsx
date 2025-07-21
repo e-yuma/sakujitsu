@@ -3,28 +3,19 @@ import React, { useEffect, useState } from "react";
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
     window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("resize", checkMobile);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    if (isMobile) return; // Disable scroll navigation on mobile
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -33,10 +24,10 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`hidden md:block ixed top-0 left-0 right-0 z-50 duration-500 ${
         scrolled ? "bg-white/20 backdrop-blur-md" : "bg-transparent"
       }`}
-      initial={{ x: -100 }}
+      initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
     >
@@ -45,9 +36,7 @@ const Header: React.FC = () => {
           {["Works", "Music", "About", "Contact"].map((item) => (
             <motion.button
               key={item}
-              className={`relative text-sm font-medium hover:text-[#C4A484] transition-colors duration-300 ${
-                isMobile ? "pointer-events-none" : ""
-              }`}
+              className={`relative text-sm font-medium hover:text-[#C4A484] transition-colors duration-300`}
               whileHover={{ y: -2 }}
               onClick={() => scrollToSection(item.toLowerCase())}
             >
