@@ -7,7 +7,7 @@ import Works from "./components/Works";
 
 function App() {
   return (
-    <div className="bg-[#FAF8F5] text-[#3D352E] overflow-x-hidden">
+    <div className="bg-[#FAF8F5] overflow-x-hidden">
       <Header />
       <Hero />
       <Works />

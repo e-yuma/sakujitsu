@@ -185,32 +185,6 @@ const Music: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Floating Music Notes Animation */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute text-[#E8D5C4] opacity-20"
-              initial={{
-                x: Math.random() * window.innerWidth,
-                y: window.innerHeight + 50,
-              }}
-              animate={{
-                y: -50,
-                x: Math.random() * window.innerWidth,
-              }}
-              transition={{
-                duration: Math.random() * 8 + 12,
-                repeat: Infinity,
-                ease: "linear",
-                delay: Math.random() * 5,
-              }}
-            >
-              <MusicIcon className="w-6 h-6" />
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

@@ -31,12 +31,17 @@ const Header: React.FC = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
     >
-      <div className="container mx-auto px-6 py-4 flex justify-end items-end w-full">
-        <nav className="hidden md:flex space-x-8">
+      <div className="container mx-auto p-8 flex items-center justify-between w-full">
+        {/* 左：ロゴ */}
+        <div className="flex items-center">
+          <img src="/assets/logo.svg" alt="Logo" className="w-14 h-14" />
+        </div>
+        {/* 右：ナビゲーション */}
+        <nav className="hidden md:flex space-x-12">
           {["Works", "Music", "About", "Contact"].map((item) => (
             <motion.button
               key={item}
-              className={`relative text-sm font-medium hover:text-[#C4A484] transition-colors duration-300`}
+              className={`relative text-lg font-medium hover:text-[#C4A484] transition-colors duration-300`}
               whileHover={{ y: -2 }}
               onClick={() => scrollToSection(item.toLowerCase())}
             >
