@@ -1,17 +1,19 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Instagram, Twitter } from "lucide-react";
 import React from "react";
 
 const Footer: React.FC = () => {
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:contact@example.com", label: "Email" },
+    { icon: Twitter, href: "https://x.com/saku_jitsu_", label: "X" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/sakujitsu_/",
+      label: "Instagram",
+    },
   ];
 
   return (
-    <footer id="contact" className="py-20 px-6 bg-[#3D352E] text-white h-full">
+    <footer id="contact" className="py-10 px-6 bg-[#3D352E] text-white h-full">
       <div className="container mx-auto max-w-4xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -68,7 +70,7 @@ const Footer: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <p>&copy; 2025 sakujitsu. All rights reserved.</p>
+          <p>&copy; 2025 sakujitsu All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

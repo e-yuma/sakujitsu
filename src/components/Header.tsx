@@ -25,11 +25,11 @@ const Header: React.FC = () => {
   return (
     <motion.header
       className={`hidden md:block fixed top-0 left-0 right-0 z-50 duration-500 ${
-        scrolled ? "bg-white/20 backdrop-blur-md" : "bg-transparent"
+        scrolled ? "bg-white/20 backdrop-blur-xs" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
+      transition={{ duration: 0.1, ease: "easeOut" }}
     >
       <div className="container mx-auto p-8 flex items-center justify-between w-full">
         {/* 左：ロゴ */}
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
         </div>
         {/* 右：ナビゲーション */}
         <nav className="hidden md:flex space-x-12">
-          {["Works", "Music", "About", "Contact"].map((item) => (
+          {["Works"].map((item) => (
             <motion.button
               key={item}
               className={`relative text-lg font-medium hover:text-[#C4A484] transition-colors duration-300`}

@@ -1,8 +1,6 @@
-import About from "./components/About";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Music from "./components/Music";
 import Works from "./components/Works";
 
 function App() {
@@ -11,8 +9,8 @@ function App() {
       <Header />
       <Hero />
       <Works />
-      <Music />
-      <About />
+      {/* <Music />
+      <About /> */}
       <Footer />
     </div>
   );
