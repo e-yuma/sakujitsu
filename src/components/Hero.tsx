@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="public\assets\hero.mp4" type="video/mp4" />
+          <source src="\assets\hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[#FAF8F5]/30 backdrop-blur-[1px]" />
       </div>
