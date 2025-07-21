@@ -24,7 +24,7 @@ const Header: React.FC = () => {
 
   return (
     <motion.header
-      className={`hidden md:block ixed top-0 left-0 right-0 z-50 duration-500 ${
+      className={`hidden md:block fixed top-0 left-0 right-0 z-50 duration-500 ${
         scrolled ? "bg-white/20 backdrop-blur-md" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
