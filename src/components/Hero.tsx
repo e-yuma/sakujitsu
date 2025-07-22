@@ -4,19 +4,13 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className={`relative h-screen flex items-center justify-center overflow-hidden`}
+      className="fixed inset-0 w-full h-screen flex items-center justify-center overflow-hidden z-0"
     >
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="\assets\hero.mp4" type="video/mp4" />
-        </video>
-      </div>
+      <img
+        className="w-full h-full object-cover"
+        src="/assets/hero.png"
+        alt="hero"
+      />
     </section>
   );
 };

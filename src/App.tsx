@@ -8,10 +8,13 @@ function App() {
     <div className="overflow-x-hidden">
       <Header />
       <Hero />
-      <Works />
-      {/* <Music />
+      <div className="bg-white z-10 relative mt-[100vh]">
+        {" "}
+        <Works />
+        {/* <Music />
       <About /> */}
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }
