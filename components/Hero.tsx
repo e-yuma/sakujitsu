@@ -12,15 +12,7 @@ const Hero: React.FC = () => {
         src="/assets/hero.png"
         alt="hero"
       />
-      <div className="relative z-10 flex justify-between items-start pt-8 px-8">
-        <div className="text-white">
-          <p className="text-sm md:text-lg">SANABURI LEMON</p>
-        </div>
-        <div className="text-white">
-          <p className="text-sm md:text-lg">SAKEKASU</p>
-        </div>
-      </div>
-      <div className="relative z-10 p-8">
+      <div className="relative z-10 w-full h-full flex flex-col justify-end items-start p-8">
         <a
           href="https://www.instagram.com/sakujitsu_/"
           target="_blank"
