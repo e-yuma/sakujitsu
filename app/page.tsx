@@ -22,7 +22,7 @@ export default function Home() {
 
   const [{ x }, api] = useSpring(() => ({
     x: 0,
-    config: { tension: 180, friction: 35, mass: 0.8, clamp: true },
+    config: { tension: 120, friction: 28, mass: 0.6, clamp: false },
   }));
 
   // セクション移動の共通関数
@@ -32,7 +32,12 @@ export default function Home() {
         setCurrentSection(index);
         api.start({
           x: -index * windowWidth,
-          config: { tension: 180, friction: 35, mass: 0.8, clamp: true },
+          config: {
+            tension: 120,
+            friction: 28,
+            mass: 0.6,
+            clamp: false,
+          },
         });
       }
     },
@@ -63,7 +68,7 @@ export default function Home() {
 
   // スワイプハンドラー
   const bind = useDrag(
-    ({ active, movement: [mx], direction: [xDir], last }) => {
+    ({ active, movement: [mx], direction: [xDir], velocity: [vx], last }) => {
       if (windowWidth === 0) return;
 
       if (active) {
@@ -84,32 +89,76 @@ export default function Home() {
 
         api.start({
           x: targetX,
-          immediate: true,
+          immediate: true, // ドラッグ中は即座に反応
         });
       } else if (last) {
-        // ドラッグ終了時の判定
-        const swipeThreshold = windowWidth * 0.2;
-        let newSection = currentSection;
+        // より洗練された判定ロジック
+        const swipeDistance = Math.abs(mx);
+        const swipeVelocity = Math.abs(vx);
 
-        // 境界チェックを含むスワイプ判定
-        if (Math.abs(mx) > swipeThreshold) {
+        // 速度ベースの閾値調整
+        const baseThreshold = windowWidth * 0.15; // 基本閾値を低く
+        const velocityThreshold = 0.3; // 速度閾値
+        const maxVelocityBonus = windowWidth * 0.1; // 速度による閾値減少
+
+        // 速度に応じて閾値を動的調整
+        const dynamicThreshold = Math.max(
+          baseThreshold - swipeVelocity * maxVelocityBonus,
+          windowWidth * 0.08 // 最小閾値
+        );
+
+        let newSection = currentSection;
+        let shouldMove = false;
+
+        // より自然な判定
+        if (
+          swipeDistance > dynamicThreshold ||
+          swipeVelocity > velocityThreshold
+        ) {
           if (mx > 0 && currentSection > 0) {
             newSection = currentSection - 1;
+            shouldMove = true;
           } else if (mx < 0 && currentSection < sections.length - 1) {
             newSection = currentSection + 1;
+            shouldMove = true;
           }
         }
 
-        // スムーズなアニメーション切り替えのために少し遅延
-        setTimeout(() => {
-          moveToSection(newSection);
-        }, 8); // より短い遅延で応答性を保つ
+        if (shouldMove) {
+          // セクション移動時：現在のドラッグ位置から滑らかにスライド
+          const targetX = -newSection * windowWidth;
+
+          // より自然なアニメーション設定
+          setCurrentSection(newSection);
+
+          api.start({
+            x: targetX,
+            config: {
+              tension: 60, // より緩やかに
+              friction: 20, // より滑らかに
+              mass: 1.2, // 重めで自然に
+              clamp: false,
+            },
+          });
+        } else {
+          // 復帰時：弾力のある動き
+          api.start({
+            x: -currentSection * windowWidth,
+            config: {
+              tension: 150,
+              friction: 28,
+              mass: 1.0,
+              clamp: true,
+            },
+          });
+        }
       }
     },
     {
       axis: "x",
       filterTaps: true,
       preventScroll: true,
+      rubberband: true, // 自然な伸縮感
     }
   );
 
