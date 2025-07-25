@@ -68,8 +68,40 @@ export default function Home() {
 
   // スワイプハンドラー
   const bind = useDrag(
-    ({ active, movement: [mx], direction: [xDir], velocity: [vx], last }) => {
+    ({
+      active,
+      movement: [mx],
+      direction: [xDir],
+      velocity: [vx],
+      last,
+      event,
+      first,
+    }) => {
       if (windowWidth === 0) return;
+
+      // ブラウザのネイティブジェスチャーを防止
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      // ドラッグ開始時にページ全体のスクロールとタッチアクションを無効化
+      if (first) {
+        document.body.style.overscrollBehavior = "none";
+        document.body.style.touchAction = "none";
+        document.documentElement.style.overscrollBehavior = "none";
+        document.documentElement.style.touchAction = "none";
+      }
+
+      // ドラッグ終了時に設定を復元
+      if (last) {
+        setTimeout(() => {
+          document.body.style.overscrollBehavior = "auto";
+          document.body.style.touchAction = "auto";
+          document.documentElement.style.overscrollBehavior = "auto";
+          document.documentElement.style.touchAction = "auto";
+        }, 100);
+      }
 
       if (active) {
         // ドラッグ中は追従（境界制限付き）
@@ -159,6 +191,12 @@ export default function Home() {
       filterTaps: true,
       preventScroll: true,
       rubberband: true, // 自然な伸縮感
+      pointer: {
+        touch: true,
+        mouse: true,
+        capture: true,
+      },
+      threshold: 2,
     }
   );
 
@@ -209,11 +247,34 @@ export default function Home() {
             onClick={() => moveToSection(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
               index === currentSection
-                ? "bg-white"
+                ? "bg-white shadow-lg shadow-white/30"
                 : "bg-white/40 hover:bg-white/70"
             }`}
           />
         ))}
+      </div>
+
+      {/* 微妙な左端グラデーション（前のセクションがある時） */}
+      {currentSection > 0 && (
+        <div className="fixed left-0 top-0 w-8 h-full z-30 pointer-events-none">
+          <div className="w-full h-full bg-gradient-to-r from-white/5 to-transparent"></div>
+        </div>
+      )}
+
+      {/* 微妙な右端グラデーション（次のセクションがある時） */}
+      {currentSection < sections.length - 1 && (
+        <div className="fixed right-0 top-0 w-8 h-full z-30 pointer-events-none">
+          <div className="w-full h-full bg-gradient-to-l from-white/5 to-transparent"></div>
+        </div>
+      )}
+
+      {/* 最初の訪問時のみ：さりげないスワイプヒント */}
+      <div className="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-40 pointer-events-none">
+        <div className="flex items-center space-x-2 opacity-40">
+          <div className="w-6 h-0.5 bg-white/50 rounded-full transform -translate-x-1"></div>
+          <div className="w-2 h-2 bg-white/30 rounded-full"></div>
+          <div className="w-6 h-0.5 bg-white/50 rounded-full transform translate-x-1"></div>
+        </div>
       </div>
 
       {/* スワイプコンテナ */}
@@ -224,24 +285,23 @@ export default function Home() {
         style={{
           x,
           width: `${sections.length * 100}vw`,
+          touchAction: "pan-y pinch-zoom", // 縦スクロールとピンチズームのみ許可
+          overscrollBehavior: "none", // オーバースクロール無効
         }}
       >
         {sections.map((section) => {
           const Component = section.component;
           return (
-            <div key={section.id} className="w-screen h-full flex-shrink-0">
+            <div
+              key={section.id}
+              className="w-screen h-full flex-shrink-0"
+              style={{ touchAction: "none" }} // セクション内ではタッチアクション完全無効
+            >
               <Component />
             </div>
           );
         })}
       </animated.div>
-
-      {/* ナビゲーションヒント */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 text-white/60 text-xs text-center">
-        <p>
-          ドラッグ・縦スクロールで移動 ({currentSection + 1}/{sections.length})
-        </p>
-      </div>
     </div>
   );
 }
