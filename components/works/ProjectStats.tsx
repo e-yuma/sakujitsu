@@ -14,7 +14,7 @@ const stats: StatItem[] = [
 
 const ProjectStats: React.FC = () => {
   return (
-    <div className="grid grid-cols-2 gap-6 md:gap-8">
+    <div className="space-y-3 md:space-y-4">
       {stats.map((stat, index) => (
         <motion.div
           key={stat.label}
@@ -24,12 +24,10 @@ const ProjectStats: React.FC = () => {
             delay: index * 0.2,
           }}
         >
-          <h4 className="text-2xl md:text-3xl font-bold text-white mb-1">
+          <h4 className="text-base sm:text-lg md:text-2xl font-bold text-white mb-1">
             {stat.value}
           </h4>
-          <p className="text-xs md:text-sm text-white/60 tracking-wide">
-            {stat.label}
-          </p>
+          <p className="text-xs text-white/60 tracking-wide">{stat.label}</p>
         </motion.div>
       ))}
     </div>

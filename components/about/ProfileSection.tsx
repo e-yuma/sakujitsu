@@ -29,18 +29,17 @@ const ProfileSection: React.FC = () => {
 
       {/* Quote */}
       <motion.div
-        className="relative mt-8 md:mt-12"
+        className="relative mt-4 md:mt-6"
         {...commonAnimations.fadeInLeft}
         transition={{ ...commonAnimations.fadeInLeft.transition, delay: 0.3 }}
         viewport={{ once: true }}
       >
-        <div className="absolute -left-3 md:-left-4 top-0 text-4xl md:text-6xl text-amber-300/20 font-serif">
+        <div className="absolute -left-2 md:-left-3 top-0 text-2xl md:text-3xl text-amber-300/20 font-serif">
           "
         </div>
-        <blockquote className="text-lg md:text-xl italic text-amber-100 pl-6 md:pl-8 leading-relaxed">
-          Great design is not just about how it looks,
-          <br className="hidden md:block" />
-          but how it works and how it makes people feel.
+        <blockquote className="text-sm md:text-base italic text-amber-100 pl-4 md:pl-6 leading-relaxed">
+          Great design is not just about how it looks, but how it works and
+          makes people feel.
         </blockquote>
       </motion.div>
     </div>

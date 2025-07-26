@@ -5,7 +5,7 @@ import { createStaggerAnimation } from "../../utils/animations";
 
 const StatsGrid: React.FC = () => {
   return (
-    <div className="grid grid-cols-3 gap-4 md:gap-8 mt-8 md:mt-16">
+    <div className="grid grid-cols-3 gap-3 md:gap-6 mt-4 md:mt-8">
       {statistics.map((stat, index) => (
         <motion.div
           key={stat.label}
@@ -13,12 +13,10 @@ const StatsGrid: React.FC = () => {
           {...createStaggerAnimation(index * 0.1)}
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl md:text-4xl font-black text-amber-300 mb-1 md:mb-2">
+          <h3 className="text-2xl md:text-3xl font-black text-amber-300 mb-1">
             {stat.value}
           </h3>
-          <p className="text-xs md:text-sm text-white/60 tracking-wide">
-            {stat.label}
-          </p>
+          <p className="text-xs text-white/60 tracking-wide">{stat.label}</p>
         </motion.div>
       ))}
     </div>

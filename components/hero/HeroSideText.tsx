@@ -19,7 +19,7 @@ const HeroSideText: React.FC<HeroSideTextProps> = ({ position, text }) => {
   };
 
   return (
-    <div className={positions[position]}>
+    <div className={`${positions[position]} hidden md:block`}>
       <p className={textStyles[position]}>{text}</p>
     </div>
   );

@@ -25,27 +25,27 @@ const Music: React.FC = () => {
       {/* Floating Musical Notes */}
       <FloatingNotes />
 
-      <div className="relative z-10 h-full flex flex-col p-4 md:p-8">
+      <div className="relative z-10 h-full flex flex-col p-4 md:p-6">
         {/* Header Section */}
-        <div className="flex justify-between items-start mb-8 md:mb-16">
+        <div className="flex justify-between items-start mb-4 md:mb-8">
           <div>
-            <div className="flex items-center mb-4 md:mb-6">
+            <div className="flex items-center mb-2 md:mb-3">
               <motion.div
-                className="w-8 md:w-12 h-8 md:h-12 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-center mr-4 md:mr-6"
+                className="w-6 md:w-8 h-6 md:h-8 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-center mr-3 md:mr-4"
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               >
-                <Volume2 className="w-4 md:w-6 h-4 md:h-6 text-white" />
+                <Volume2 className="w-3 md:w-4 h-3 md:h-4 text-white" />
               </motion.div>
-              <span className="text-xs md:text-sm tracking-[0.3em] md:tracking-[0.4em] text-white/60 font-light">
+              <span className="text-xs tracking-[0.3em] text-white/60 font-light">
                 SOUNDTRACK
               </span>
             </div>
 
-            <h1 className="font-display text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-display leading-none mb-2 md:mb-4">
+            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black tracking-display leading-none mb-1 md:mb-2">
               MUSIC
             </h1>
-            <p className="text-lg md:text-xl text-violet-200/80 tracking-wide font-light">
+            <p className="text-sm md:text-base text-violet-200/80 tracking-wide font-light">
               & Inspiration
             </p>
           </div>
@@ -58,14 +58,14 @@ const Music: React.FC = () => {
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
           {/* Left Side - Featured Track */}
           <div className="lg:col-span-7 order-2 lg:order-1">
-            <div className="mb-6 md:mb-8">
-              <div className="flex items-center mb-3 md:mb-4">
-                <div className="w-8 md:w-12 h-px bg-violet-400/60 mr-3 md:mr-4"></div>
-                <span className="text-xs md:text-sm tracking-[0.2em] md:tracking-[0.3em] text-white/60">
+            <div className="mb-4 md:mb-6">
+              <div className="flex items-center mb-2 md:mb-3">
+                <div className="w-6 md:w-8 h-px bg-violet-400/60 mr-2 md:mr-3"></div>
+                <span className="text-xs tracking-[0.2em] text-white/60">
                   NOW PLAYING
                 </span>
               </div>
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 md:mb-6">
+              <h2 className="text-lg md:text-xl lg:text-2xl font-bold leading-tight mb-2 md:mb-3">
                 The soundtracks that
                 <br />
                 <span className="text-violet-300 italic font-light">
@@ -80,8 +80,8 @@ const Music: React.FC = () => {
 
           {/* Right Side - Track List */}
           <div className="lg:col-span-5 order-1 lg:order-2">
-            <div className="mb-6 md:mb-8">
-              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-violet-200">
+            <div className="mb-3 md:mb-4">
+              <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3 text-violet-200">
                 PLAYLIST
               </h3>
             </div>

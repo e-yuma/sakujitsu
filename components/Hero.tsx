@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
       />
 
       {/* Magazine-style text overlay */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-between p-4 md:p-8">
+      <div className="relative z-10 w-full h-full flex flex-col justify-between p-4 md:p-6">
         {/* Top section - Magazine title style */}
         <HeroHeader />
 

@@ -21,7 +21,7 @@ const TrackCard: React.FC<TrackCardProps> = ({ track }) => {
           <img
             src={track.thumbnail}
             alt={track.title}
-            className="w-full h-48 md:h-64 object-cover"
+            className="w-full h-40 md:h-48 object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
 
@@ -34,8 +34,8 @@ const TrackCard: React.FC<TrackCardProps> = ({ track }) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="w-12 md:w-16 h-12 md:h-16 bg-violet-500/90 backdrop-blur-sm rounded-full flex items-center justify-center">
-              <Play className="w-6 md:w-8 h-6 md:h-8 text-white ml-1" />
+            <div className="w-10 md:w-12 h-10 md:h-12 bg-violet-500/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+              <Play className="w-5 md:w-6 h-5 md:h-6 text-white ml-1" />
             </div>
           </motion.a>
         </div>
