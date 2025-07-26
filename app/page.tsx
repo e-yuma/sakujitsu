@@ -41,7 +41,7 @@ export default function Home() {
         });
       }
     },
-    [currentSection, windowWidth, api]
+    [windowWidth, api]
   );
 
   // ウィンドウサイズの初期化と監視
@@ -68,15 +68,7 @@ export default function Home() {
 
   // スワイプハンドラー
   const bind = useDrag(
-    ({
-      active,
-      movement: [mx],
-      direction: [xDir],
-      velocity: [vx],
-      last,
-      event,
-      first,
-    }) => {
+    ({ active, movement: [mx], velocity: [vx], last, event, first }) => {
       if (windowWidth === 0) return;
 
       // ブラウザのネイティブジェスチャーを防止
