@@ -1,15 +1,26 @@
 @import "tailwindcss";
 
+/* 雑誌風日本語フォント設定 */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Magazine-style Japanese fonts */
+  --font-primary: "Noto Sans JP", "Zen Kaku Gothic New", "Inter", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Noto Serif JP", "Shippori Mincho", Georgia, serif;
+  --font-display: "M PLUS 1", "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  --font-mono: "JetBrains Mono", "Noto Sans Mono CJK JP", "SF Mono", Monaco,
+    Consolas, monospace;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-primary);
+  --font-serif: var(--font-serif);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +33,31 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+  font-feature-settings: "palt" 1; /* 日本語プロポーショナル調整 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 日本語フォント最適化 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-feature-settings: "palt" 1;
+  letter-spacing: -0.025em;
+}
+
+.font-magazine-serif {
+  font-family: var(--font-serif);
+  font-feature-settings: "palt" 1;
+}
+
+.font-magazine-display {
+  font-family: var(--font-display);
+  font-feature-settings: "palt" 1;
+  letter-spacing: -0.05em;
 }
