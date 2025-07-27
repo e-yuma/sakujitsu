@@ -16,6 +16,7 @@ const Works: React.FC = () => {
       style={{
         height: "100dvh",
       }}
+      aria-label="Works Section - Featured Projects and Portfolio"
     >
       <animated.div
         className="relative w-full h-full rounded-3xl md:rounded-4xl overflow-hidden bg-gradient-to-br from-zinc-900 via-gray-900 to-black cursor-grab active:cursor-grabbing"

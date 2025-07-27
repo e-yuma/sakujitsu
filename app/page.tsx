@@ -54,12 +54,14 @@ export default function Home() {
   }, [currentSection, moveToSection, windowWidth]);
 
   return (
-    <div
+    <main
       className="overflow-hidden relative bg-black"
       style={{
         height: `${windowHeight}px`,
         minHeight: "100dvh",
       }}
+      role="main"
+      aria-label="Sakujitsu Portfolio"
     >
       {/* インジケーター - 上端におしゃれに配置 */}
       <div className="fixed top-0 left-0 right-0 z-50 p-4 pt-safe">
@@ -111,6 +113,6 @@ export default function Home() {
           );
         })}
       </animated.div>
-    </div>
+    </main>
   );
 }

@@ -1,11 +1,9 @@
 @import "tailwindcss";
 
-/* 雑誌風日本語フォント設定 */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Magazine-style Japanese fonts */
   --font-primary: "Noto Sans JP", "Zen Kaku Gothic New", "Inter", -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-serif: "Noto Serif JP", "Shippori Mincho", Georgia, serif;
@@ -30,7 +28,6 @@
   }
 }
 
-/* スマートフォンのアドレスバー対応 */
 html {
   height: 100%;
   height: 100dvh;
@@ -41,7 +38,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-primary);
-  font-feature-settings: "palt" 1; /* 日本語プロポーショナル調整 */
+  font-feature-settings: "palt" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;

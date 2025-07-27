@@ -17,6 +17,7 @@ const Hero: React.FC = () => {
       id="hero"
       className="relative w-full flex flex-col justify-between overflow-hidden p-4 md:p-6"
       style={{ height: "100dvh" }}
+      aria-label="Hero Section - Sakujitsu Portfolio Introduction"
     >
       <animated.div
         className="relative w-full h-full rounded-3xl md:rounded-4xl overflow-hidden cursor-grab active:cursor-grabbing"

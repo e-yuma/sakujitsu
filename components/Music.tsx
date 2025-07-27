@@ -21,6 +21,7 @@ const Music: React.FC = () => {
       id="music"
       className="relative bg-black text-white overflow-hidden p-4 md:p-6"
       style={{ height: "100dvh" }}
+      aria-label="Music Section - Creative Inspiration and Soundtracks"
     >
       <animated.div
         className="relative w-full h-full rounded-3xl md:rounded-4xl overflow-hidden bg-gradient-to-br from-indigo-950 via-purple-900 to-slate-900 cursor-grab active:cursor-grabbing"

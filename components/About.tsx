@@ -17,6 +17,7 @@ const About: React.FC = () => {
       id="about"
       className="relative bg-black text-white overflow-hidden p-4 md:p-6"
       style={{ height: "100dvh" }}
+      aria-label="About Section - Creative Frontend Engineer Profile"
     >
       <animated.div
         className="relative w-full h-full rounded-3xl md:rounded-4xl overflow-hidden bg-gradient-to-br from-zinc-900 via-gray-900 to-black cursor-grab active:cursor-grabbing"
