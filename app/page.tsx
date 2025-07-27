@@ -18,6 +18,7 @@ const sections = [
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [{ x }, api] = useSpring(() => ({
@@ -46,14 +47,19 @@ export default function Home() {
 
   // ウィンドウサイズの初期化と監視
   useEffect(() => {
-    const updateWindowWidth = () => {
+    const updateWindowSize = () => {
       setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
     };
 
-    updateWindowWidth();
-    window.addEventListener("resize", updateWindowWidth);
+    updateWindowSize();
+    window.addEventListener("resize", updateWindowSize);
+    window.addEventListener("orientationchange", updateWindowSize);
 
-    return () => window.removeEventListener("resize", updateWindowWidth);
+    return () => {
+      window.removeEventListener("resize", updateWindowSize);
+      window.removeEventListener("orientationchange", updateWindowSize);
+    };
   }, []);
 
   // 初期位置設定
@@ -221,9 +227,15 @@ export default function Home() {
   }, [currentSection, moveToSection, windowWidth]);
 
   return (
-    <div className="h-screen overflow-hidden relative bg-black">
+    <div
+      className="overflow-hidden relative bg-black"
+      style={{
+        height: `${windowHeight}px`,
+        minHeight: "100dvh",
+      }}
+    >
       {/* インジケーター - 上端におしゃれに配置 */}
-      <div className="fixed top-0 left-0 right-0 z-50 p-4">
+      <div className="fixed top-0 left-0 right-0 z-50 p-4 pt-safe">
         <div className="flex justify-center">
           <div className="flex space-x-2 bg-black/20 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
             {sections.map((_, index) => (
@@ -245,10 +257,12 @@ export default function Home() {
       <animated.div
         ref={containerRef}
         {...bind()}
-        className="flex h-full cursor-grab active:cursor-grabbing select-none"
+        className="flex cursor-grab active:cursor-grabbing select-none"
         style={{
           x,
           width: `${sections.length * 100}vw`,
+          height: `${windowHeight}px`,
+          minHeight: "100dvh",
           touchAction: "pan-y pinch-zoom",
           overscrollBehavior: "none",
         }}
@@ -258,8 +272,12 @@ export default function Home() {
           return (
             <div
               key={section.id}
-              className="w-screen h-full flex-shrink-0"
-              style={{ touchAction: "none" }}
+              className="w-screen flex-shrink-0"
+              style={{
+                height: `${windowHeight}px`,
+                minHeight: "100dvh",
+                touchAction: "none",
+              }}
             >
               <Component />
             </div>

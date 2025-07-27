@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -32,7 +33,13 @@ const Header: React.FC = () => {
       <div className="container mx-auto p-8 flex items-center justify-between w-full">
         {/* 左：ロゴ */}
         <div className="flex items-center space-x-3">
-          <img src="/assets/logo.svg" alt="Logo" className="w-14 h-14" />
+          <Image
+            src="/assets/logo.svg"
+            alt="Logo"
+            width={56}
+            height={56}
+            className="w-14 h-14"
+          />
           <motion.div className="text-lg">Sakujitsu</motion.div>
         </div>
         {/* 右：ナビゲーション */}

@@ -18,11 +18,6 @@ const TrackCard: React.FC<TrackCardProps> = ({ track }) => {
     >
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 relative">
-          <img
-            src={track.thumbnail}
-            alt={track.title}
-            className="w-full h-40 md:h-48 object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
 
           {/* Play Button */}

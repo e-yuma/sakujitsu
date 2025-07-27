@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import Image from "next/image";
 import {
   commonAnimations,
   createRotationAnimation,
@@ -24,10 +25,11 @@ const Avatar: React.FC = () => {
           }}
         />
         <div className="relative w-32 md:w-40 h-32 md:h-40 rounded-full overflow-hidden border-4 border-amber-300/30 shadow-2xl">
-          <img
+          <Image
             src="/assets/icon.png"
             alt="昨日(sakujitsu)"
             className="w-full h-full object-cover"
+            fill
           />
         </div>
       </div>

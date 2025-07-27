@@ -8,10 +8,10 @@ const PageNumber: React.FC<PageNumberProps> = ({
   position = "bottom-right",
 }) => {
   const positionClasses = {
-    "bottom-right": "bottom-4 md:bottom-8 right-4 md:right-8",
-    "bottom-left": "bottom-4 md:bottom-8 left-4 md:left-8",
-    "top-left": "top-4 md:top-8 left-4 md:left-8",
-    "top-right": "top-4 md:top-8 right-4 md:right-8",
+    "bottom-right": "bottom-4 md:bottom-8 right-4 md:right-8 pb-safe pr-safe",
+    "bottom-left": "bottom-4 md:bottom-8 left-4 md:left-8 pb-safe pl-safe",
+    "top-left": "top-4 md:top-8 left-4 md:left-8 pt-safe pl-safe",
+    "top-right": "top-4 md:top-8 right-4 md:right-8 pt-safe pr-safe",
   };
 
   return (

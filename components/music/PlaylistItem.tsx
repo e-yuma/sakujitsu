@@ -17,13 +17,7 @@ const PlaylistItem: React.FC<PlaylistItemProps> = ({ track, index }) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
     >
-      <div className="w-12 md:w-16 h-12 md:h-16 rounded-lg overflow-hidden mr-3 md:mr-4 flex-shrink-0">
-        <img
-          src={track.thumbnail}
-          alt={track.title}
-          className="w-full h-full object-cover"
-        />
-      </div>
+      <div className="w-12 md:w-16 h-12 md:h-16 rounded-lg overflow-hidden mr-3 md:mr-4 flex-shrink-0 relative"></div>
 
       <div className="flex-1">
         <h4 className="font-semibold text-white group-hover:text-violet-200 transition-colors text-sm md:text-base">
