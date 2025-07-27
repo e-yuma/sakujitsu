@@ -1,4 +1,5 @@
 import React from "react";
+import { SOCIAL_ACCOUNTS } from "../data/social";
 
 const StructuredData: React.FC = () => {
   const structuredData = {
@@ -11,9 +12,9 @@ const StructuredData: React.FC = () => {
     url: "https://sakujitsu.com",
     image: "https://sakujitsu.com/assets/hero.png",
     sameAs: [
-      "https://www.instagram.com/sakujitsu_/",
-      "https://github.com/sakujitsu",
-      "https://twitter.com/sakujitsu_",
+      SOCIAL_ACCOUNTS.instagram.url,
+      SOCIAL_ACCOUNTS.x.url,
+      SOCIAL_ACCOUNTS.tiktok.url,
     ],
     knowsAbout: [
       "React",

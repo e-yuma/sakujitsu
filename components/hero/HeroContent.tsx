@@ -1,5 +1,6 @@
 import { Instagram } from "lucide-react";
 import React from "react";
+import { SOCIAL_ACCOUNTS } from "../../data/social";
 
 const HeroContent: React.FC = () => {
   return (
@@ -19,8 +20,9 @@ const HeroContent: React.FC = () => {
       {/* Bottom row with Instagram */}
       <div className="flex justify-start items-end mt-2 md:mt-4 mb-4 md:mb-6">
         <a
-          href="https://www.instagram.com/sakujitsu_/"
+          href={SOCIAL_ACCOUNTS.instagram.url}
           target="_blank"
+          rel="noopener noreferrer"
           className="text-sm md:text-base gap-2 flex items-center text-white hover:text-gray-200 transition-colors relative tracking-widest group"
           draggable="false"
         >

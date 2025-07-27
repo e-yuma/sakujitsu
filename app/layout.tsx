@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: "Sakujitsu - Creative Portfolio",
     description: "Creative Frontend Engineerのポートフォリオサイト",
     images: ["/assets/hero.png"],
-    creator: "@sakujitsu_",
+    creator: "@saku_jitsu_",
   },
   robots: {
     index: true,
