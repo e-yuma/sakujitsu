@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroHeader: React.FC = () => {
   return (
-    <div className="flex justify-between items-start">
+    <div className="flex justify-between items-start mt-4 md:mt-6 lg:mt-8">
       <div className="space-y-1">
         <h1 className="font-display text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-white tracking-display leading-none">
           SAKUJITSU

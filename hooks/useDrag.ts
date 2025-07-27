@@ -11,6 +11,7 @@ interface UseDragOptions {
   tension?: number;
   friction?: number;
   rubberband?: boolean;
+  disabled?: boolean;
 }
 
 export const useSimpleDrag = (options: UseDragOptions = {}) => {
@@ -19,6 +20,7 @@ export const useSimpleDrag = (options: UseDragOptions = {}) => {
     tension = 300,
     friction = 30,
     rubberband = true,
+    disabled = false,
   } = options;
 
   const [{ x, y }, api] = useSpring(() => ({
@@ -29,6 +31,8 @@ export const useSimpleDrag = (options: UseDragOptions = {}) => {
 
   const bind = useDrag(
     ({ active, movement: [mx, my], last }) => {
+      if (disabled) return;
+      
       if (active) {
         // ドラッグ中は追従
         api.start({
@@ -48,6 +52,7 @@ export const useSimpleDrag = (options: UseDragOptions = {}) => {
     {
       bounds,
       rubberband,
+      enabled: !disabled,
     }
   );
 

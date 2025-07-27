@@ -84,7 +84,7 @@ export default function Home() {
       <animated.div
         ref={containerRef}
         {...bind()}
-        className="flex cursor-grab active:cursor-grabbing select-none"
+        className="flex select-none"
         style={{
           x,
           width: `${sections.length * 100}vw`,

@@ -168,14 +168,14 @@ export const useSwipeNavigation = ({
     {
       axis: "x",
       filterTaps: true,
-      preventScroll: true,
+      preventScroll: false,
       rubberband: true, // 自然な伸縮感
       pointer: {
         touch: true,
         mouse: true,
-        capture: true,
+        capture: false,
       },
-      threshold: 2,
+      threshold: 10,
     }
   );
 
