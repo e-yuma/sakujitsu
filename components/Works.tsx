@@ -2,40 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
-import { useSpring, animated } from "@react-spring/web";
-import { useDrag } from "@use-gesture/react";
+import { animated } from "@react-spring/web";
+import { useSimpleDrag } from "@/hooks";
 import PageNumber from "./PageNumber";
 
 const Works: React.FC = () => {
-  const [{ x, y }, api] = useSpring(() => ({
-    x: 0,
-    y: 0,
-    config: { tension: 300, friction: 30 },
-  }));
-
-  const bind = useDrag(
-    ({ active, movement: [mx, my], last }) => {
-      if (active) {
-        // ドラッグ中は追従
-        api.start({
-          x: mx,
-          y: my,
-          immediate: true,
-        });
-      } else if (last) {
-        // ドラッグ終了時は元の位置に戻る
-        api.start({
-          x: 0,
-          y: 0,
-          config: { tension: 300, friction: 30 },
-        });
-      }
-    },
-    {
-      bounds: { left: -100, right: 100, top: -100, bottom: 100 },
-      rubberband: true,
-    }
-  );
+  const { x, y, bind } = useSimpleDrag();
 
   return (
     <section

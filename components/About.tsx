@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { useSpring, animated } from "@react-spring/web";
-import { useDrag } from "@use-gesture/react";
+import { animated } from "@react-spring/web";
+import { useSimpleDrag } from "@/hooks";
 import Avatar from "./about/Avatar";
 import ProfileSection from "./about/ProfileSection";
 import SkillsGrid from "./about/SkillsGrid";
@@ -10,35 +10,7 @@ import StatsGrid from "./about/StatsGrid";
 import PageNumber from "./PageNumber";
 
 const About: React.FC = () => {
-  const [{ x, y }, api] = useSpring(() => ({
-    x: 0,
-    y: 0,
-    config: { tension: 300, friction: 30 },
-  }));
-
-  const bind = useDrag(
-    ({ active, movement: [mx, my], last }) => {
-      if (active) {
-        // ドラッグ中は追従
-        api.start({
-          x: mx,
-          y: my,
-          immediate: true,
-        });
-      } else if (last) {
-        // ドラッグ終了時は元の位置に戻る
-        api.start({
-          x: 0,
-          y: 0,
-          config: { tension: 300, friction: 30 },
-        });
-      }
-    },
-    {
-      bounds: { left: -100, right: 100, top: -100, bottom: 100 },
-      rubberband: true,
-    }
-  );
+  const { x, y, bind } = useSimpleDrag();
 
   return (
     <section
