@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
-import {
-  commonAnimations,
-  createRotationAnimation,
-} from "../../utils/animations";
+import { commonAnimations } from "../../utils/animations";
 
 const Avatar: React.FC = () => {
   return (

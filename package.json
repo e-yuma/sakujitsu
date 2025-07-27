@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ./app",
+    "lint": "next lint",
     "lint:debug": "eslint ./app --debug",
     "lint:fix": "eslint ./app --fix"
   },

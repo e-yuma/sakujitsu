@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import React from "react";
 import { commonAnimations } from "../../utils/animations";
 
@@ -9,10 +10,12 @@ const FeaturedProject: React.FC = () => {
         className="relative h-64 sm:h-72 md:h-full rounded-lg md:rounded-xl overflow-hidden"
         {...commonAnimations.scaleIn}
       >
-        <img
-          className="w-full h-full object-cover"
+        <Image
+          className="object-cover"
           src="/assets/works.png"
           alt="featured works"
+          fill
+          sizes="(max-width: 640px) 33vw, (max-width: 768px) 40vw, 50vw"
         />
 
         {/* Image overlay with typography */}

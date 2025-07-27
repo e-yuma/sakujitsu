@@ -7,8 +7,8 @@ const MusicPhilosophy: React.FC = () => {
         MUSIC PHILOSOPHY
       </h4>
       <blockquote className="text-xs md:text-sm italic text-white/80 leading-relaxed">
-        "音楽は創造性の源泉。コードを書く時も、デザインを考える時も、
-        適切な音楽が心の奥底からインスピレーションを引き出してくれる。"
+        &quot;音楽は創造性の源泉。コードを書く時も、デザインを考える時も、
+        適切な音楽が心の奥底からインスピレーションを引き出してくれる。&quot;
       </blockquote>
     </div>
   );
