@@ -11,27 +11,16 @@ module.exports = {
         sans: [
           '"Noto Sans JP"',
           '"Zen Kaku Gothic New"',
-          '"Inter"',
           "-apple-system",
           "BlinkMacSystemFont",
           '"Segoe UI"',
-          "Roboto",
           "sans-serif",
         ],
-        serif: ['"Noto Serif JP"', '"Shippori Mincho"', "Georgia", "serif"],
         display: [
           '"M PLUS 1"',
           '"Zen Kaku Gothic New"',
           '"Noto Sans JP"',
           "sans-serif",
-        ],
-        mono: [
-          '"JetBrains Mono"',
-          '"Noto Sans Mono CJK JP"',
-          '"SF Mono"',
-          "Monaco",
-          "Consolas",
-          "monospace",
         ],
       },
       fontSize: {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { getGoogleFontsUrl } from "../utils/fonts";
 import StructuredData from "@/components/StructuredData";
+import PerformanceMonitor from "@/components/PerformanceMonitor";
 
 export const metadata: Metadata = {
   title: "Sakujitsu - Creative Portfolio | クリエイティブポートフォリオ",
@@ -92,6 +93,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         <StructuredData />
+        <PerformanceMonitor />
         {children}
       </body>
     </html>

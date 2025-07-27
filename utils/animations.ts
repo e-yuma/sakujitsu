@@ -1,35 +1,35 @@
-import { AnimationConfig, MotionVariants } from '../types';
+import { Variants } from 'framer-motion';
 
-// 共通アニメーション設定
+// 共通アニメーション設定（パフォーマンス最適化版）
 export const commonAnimations = {
   fadeInUp: {
-    initial: { opacity: 0, y: 30 },
+    initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8 }
+    transition: { duration: 0.6, ease: "easeOut" }
   },
   
   fadeInLeft: {
-    initial: { opacity: 0, x: -30 },
+    initial: { opacity: 0, x: -20 },
     animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.8 }
+    transition: { duration: 0.6, ease: "easeOut" }
   },
   
   fadeInRight: {
-    initial: { opacity: 0, x: 30 },
+    initial: { opacity: 0, x: 20 },
     animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.5 }
+    transition: { duration: 0.4, ease: "easeOut" }
   },
   
   scaleIn: {
-    initial: { opacity: 0, scale: 0.8 },
+    initial: { opacity: 0, scale: 0.95 },
     animate: { opacity: 1, scale: 1 },
-    transition: { duration: 1 }
+    transition: { duration: 0.5, ease: "easeOut" }
   },
   
   slideInLeft: {
-    initial: { x: -100, opacity: 0 },
+    initial: { x: -50, opacity: 0 },
     animate: { x: 0, opacity: 1 },
-    transition: { duration: 0.6 }
+    transition: { duration: 0.5, ease: "easeOut" }
   }
 } as const;
 
@@ -37,16 +37,16 @@ export const commonAnimations = {
 export const createStaggerAnimation = (delay: number = 0.1) => ({
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, delay }
+  transition: { duration: 0.5, delay, ease: "easeOut" }
 });
 
-export const createRotationAnimation = (duration: number = 8): AnimationConfig => ({
+export const createRotationAnimation = (duration: number = 8) => ({
   duration,
   repeat: Infinity,
   ease: "linear",
 });
 
-export const createFloatingAnimation = (duration: number = 4, delay: number = 0): AnimationConfig => ({
+export const createFloatingAnimation = (duration: number = 4, delay: number = 0) => ({
   duration,
   repeat: Infinity,
   ease: "easeInOut",

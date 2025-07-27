@@ -35,20 +35,20 @@ export interface Statistic {
   description?: string;
 }
 
-// Animation types
-export interface AnimationConfig {
+// Animation types (framer-motionを使用)
+export type AnimationConfig = {
   duration: number;
   repeat: number;
   ease: string;
   delay?: number;
-}
+};
 
-export interface MotionVariants {
-  initial: Record<string, any>;
-  animate: Record<string, any>;
-  exit?: Record<string, any>;
-  transition?: Record<string, any>;
-}
+export type MotionVariants = {
+  initial: Record<string, unknown>;
+  animate: Record<string, unknown>;
+  exit?: Record<string, unknown>;
+  transition?: Record<string, unknown>;
+};
 
 // Common UI types
 export interface PageSection {
