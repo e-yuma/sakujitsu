@@ -12,14 +12,6 @@ const nextConfig: NextConfig = {
   // 実験的機能
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
   
   // 圧縮
